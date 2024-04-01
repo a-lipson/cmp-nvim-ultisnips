@@ -56,9 +56,12 @@ function source.resolve(self, completion_item, callback)
 end
 
 function source:execute(completion_item, callback)
-  vim.call("UltiSnips#ExpandSnippet")
+  -- vim.call("UltiSnips#ExpandSnippet")
+  vim.api.nvim_call_function("execute", {"silent! call UltiSnips#ExpandSnippet()"})
   callback(completion_item)
 end
+
+
 
 function source:is_available()
   -- If UltiSnips is installed then this variable should be defined
