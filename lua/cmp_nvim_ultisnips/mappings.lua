@@ -70,4 +70,12 @@ function M.jump_backwards(fallback)
   M.compose { "jump_backwards", "select_prev_item" }(fallback)
 end
 
+function M.can_expand_or_jump()
+    return can_execute("UltiSnips#CanExpandSnippet") or can_execute("UltiSnips#CanJumpForwards")
+end
+
+function M.can_jump_back()
+    return can_execute("UltiSnips#CanJumpBackwards")
+end
+
 return M
